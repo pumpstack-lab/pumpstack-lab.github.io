@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PumpStack Lab.｜飲食業界の業務改善パートナー</title>
+  <meta name="google" content="notranslate">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-light: #eff6ff;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --green: #16a34a;
+      --green-bg: #f0fdf4;
+      --amber: #d97706;
+      --amber-bg: #fffbeb;
+      --radius: 10px;
+    }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN','Hiragino Sans','Meiryo',sans-serif;
+      color: var(--dark); background: var(--white); line-height: 1.7;
+      max-width: 720px; margin: 0 auto;
+    }
+
+    /* ===== HEADER ===== */
+    .flyer-header {
+      background: linear-gradient(145deg, #0a0f1e 0%, #0f2044 60%, #1a1040 100%);
+      padding: 40px 36px 36px; color: white; position: relative; overflow: hidden;
+    }
+    .flyer-header::before {
+      content: ''; position: absolute; top: -40%; right: -10%;
+      width: 55%; height: 160%;
+      background: radial-gradient(ellipse, rgba(37,99,235,0.3) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .header-inner { position: relative; z-index: 1; }
+    .logo-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .logo { font-size: 18px; font-weight: 900; text-decoration: none; letter-spacing: -0.5px; }
+    .logo .pump { color: #e2e8f0; }
+    .logo .stack { background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .logo .lab { color: #94a3b8; font-weight: 600; font-size: 14px; margin-left: 1px; }
+    .header-tag {
+      background: rgba(37,99,235,0.3); border: 1px solid rgba(96,165,250,0.4);
+      color: #93c5fd; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 100px;
+      letter-spacing: 1px;
+    }
+    .header-catch { font-size: clamp(20px, 5vw, 28px); font-weight: 900; line-height: 1.3; margin-bottom: 12px; letter-spacing: -0.5px; }
+    .header-catch em { color: #60a5fa; font-style: normal; }
+    .header-sub { font-size: 13px; color: #94a3b8; line-height: 1.7; }
+
+    /* ===== SECTION ===== */
+    .section { padding: 36px; }
+    .section-alt { padding: 36px; background: var(--light); }
+    .section-title {
+      font-size: 17px; font-weight: 900; margin-bottom: 20px;
+      padding-bottom: 10px; border-bottom: 2px solid #e2e8f0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-title .icon { font-size: 20px; }
+
+    /* ===== MISSION ===== */
+    .mission-text {
+      font-size: 15px; line-height: 1.9; color: #374151;
+      background: var(--blue-light); border: 1px solid #bfdbfe;
+      padding: 20px 24px; border-radius: var(--radius);
+    }
+
+    /* ===== MOCK UI ===== */
+    .mockui {
+      background: white; border-radius: var(--radius); border: 1px solid #e2e8f0;
+      overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+    .mockui-bar {
+      background: #1e293b; padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .mockui-dots { display: flex; gap: 5px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ef4444; }
+    .dot-y { background: #f59e0b; }
+    .dot-g { background: #22c55e; }
+    .mockui-url {
+      flex: 1; background: rgba(255,255,255,0.08); border-radius: 4px;
+      padding: 4px 10px; font-size: 11px; color: #94a3b8;
+      text-align: center;
+    }
+    .mockui-body { padding: 0; }
+
+    /* Reservation Demo UI */
+    .demo-header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      padding: 18px 20px; color: white; text-align: center;
+    }
+    .demo-header h3 { font-size: 15px; font-weight: 800; margin-bottom: 2px; }
+    .demo-header p { font-size: 11px; opacity: 0.7; }
+    .demo-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .demo-stat {
+      padding: 14px 12px; text-align: center;
+      border-right: 1px solid #f1f5f9;
+    }
+    .demo-stat:last-child { border-right: none; }
+    .demo-stat .val { font-size: 20px; font-weight: 900; color: var(--blue); display: block; }
+    .demo-stat .lbl { font-size: 10px; color: var(--gray); }
+    .demo-reservations { padding: 12px 16px; }
+    .demo-res-title { font-size: 11px; font-weight: 700; color: var(--gray); margin-bottom: 10px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .res-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 0; border-bottom: 1px solid #f8fafc; font-size: 12px;
+    }
+    .res-row:last-child { border-bottom: none; }
+    .res-time { font-weight: 800; color: var(--dark); width: 40px; flex-shrink: 0; }
+    .res-name { flex: 1; color: #374151; }
+    .res-badge {
+      font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px;
+    }
+    .badge-confirmed { background: var(--green-bg); color: var(--green); }
+    .badge-new { background: #fef3c7; color: #92400e; }
+
+    /* ===== TOOLS ===== */
+    .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tool-card {
+      background: white; border: 1px solid #e2e8f0; border-radius: var(--radius);
+      padding: 18px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .tool-header { display: flex; align-items: center; justify-content: space-between; }
+    .tool-icon { font-size: 22px; }
+    .tool-status {
+      font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 100px;
+    }
+    .status-live { background: var(--green-bg); color: var(--green); }
+    .status-dev { background: var(--amber-bg); color: var(--amber); }
+    .tool-card h4 { font-size: 13px; font-weight: 800; line-height: 1.35; }
+    .tool-card p { font-size: 11px; color: var(--gray); line-height: 1.6; }
+
+    /* ===== ROADMAP ===== */
+    .roadmap { display: flex; flex-direction: column; gap: 10px; }
+    .rm-item {
+      display: flex; align-items: center; gap: 14px;
+      background: white; border: 1px solid #e2e8f0;
+      border-radius: var(--radius); padding: 14px 18px;
+    }
+    .rm-item.done { border-color: rgba(22,163,74,0.3); background: var(--green-bg); }
+    .rm-item.wip { border-color: rgba(217,119,6,0.3); background: var(--amber-bg); }
+    .rm-icon { font-size: 18px; width: 28px; text-align: center; flex-shrink: 0; }
+    .rm-text { flex: 1; }
+    .rm-text strong { font-size: 13px; font-weight: 800; display: block; }
+    .rm-text span { font-size: 11px; color: var(--gray); }
+    .rm-status {
+      font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; white-space: nowrap;
+    }
+    .rs-done { background: rgba(22,163,74,0.15); color: var(--green); }
+    .rs-wip { background: rgba(217,119,6,0.15); color: var(--amber); }
+    .rs-plan { background: #f1f5f9; color: var(--gray); }
+
+    /* ===== INDUSTRIES ===== */
+    .industry-mini { display: flex; flex-direction: column; gap: 10px; }
+    .ind-row { display: flex; gap: 10px; }
+    .ind-card {
+      flex: 1; background: white; border: 1px solid #e2e8f0; border-radius: 8px;
+      padding: 14px; text-align: center;
+    }
+    .ind-icon { font-size: 24px; margin-bottom: 6px; }
+    .ind-card h4 { font-size: 12px; font-weight: 800; margin-bottom: 4px; }
+    .ind-card p { font-size: 10px; color: var(--gray); line-height: 1.5; }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: linear-gradient(145deg, #0a0f1e 0%, #0f2044 60%, #1a1040 100%);
+      padding: 40px 36px; text-align: center; color: white;
+    }
+    .cta h2 { font-size: 20px; font-weight: 900; margin-bottom: 10px; }
+    .cta p { color: #94a3b8; font-size: 13px; margin-bottom: 28px; line-height: 1.7; }
+    .cta-line {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #06c755; color: white; padding: 16px 36px; border-radius: 100px;
+      font-size: 16px; font-weight: 800; text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25); margin-bottom: 16px;
+    }
+    .cta-contact { color: #64748b; font-size: 12px; }
+    .cta-contact a { color: #94a3b8; }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { max-width: 100%; }
+      .flyer-header { background: #0f172a !important; }
+      .cta { background: #0f172a !important; }
+    }
+
+    @media (max-width: 480px) {
+      .section, .section-alt { padding: 28px 20px; }
+      .flyer-header { padding: 32px 20px 28px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .cta { padding: 32px 20px; }
+      .ind-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="flyer-header">
+  <div class="header-inner">
+    <div class="logo-row">
+      <a href="index.html" class="logo">
+        <span class="pump">Pump</span><span class="stack">Stack</span><span class="lab"> Lab.</span>
+      </a>
+      <span class="header-tag">飲食業界向け</span>
+    </div>
+    <h1 class="header-catch">
+      飲食業界の業務改善を、<br>
+      <em>テクノロジーで加速する。</em>
+    </h1>
+    <p class="header-sub">
+      予約・テイクアウト・オーダー・売上集計――<br>
+      飲食店の業務フロー全体を、PSLがトータルでサポートします。
+    </p>
+  </div>
+</div>
+
+<!-- MISSION -->
+<div class="section">
+  <div class="section-title"><span class="icon">🏢</span>PumpStack Lab. とは</div>
+  <div class="mission-text">
+    PumpStack Lab.（PSL）は、中小企業・個人事業者の「業務の困りごと」をテクノロジーで解決することをミッションとするIT会社です。<br><br>
+    大手ITコンサルでもなく、フリーランスでもない「現場に寄り添う業務改善パートナー」として、相談から導入・運用まで一気通貫で担います。<br><br>
+    飲食業界を最重点領域に位置づけ、予約管理から売上集計まで、現場の声から生まれたツールを開発・提供し続けています。
+  </div>
+</div>
+
+<!-- DEMO UI -->
+<div class="section-alt">
+  <div class="section-title"><span class="icon">📅</span>稼働中：飲食店予約システム（KOMOAN）</div>
+  <div class="mockui">
+    <div class="mockui-bar">
+      <div class="mockui-dots">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+      </div>
+      <div class="mockui-url">komoan-reserve.onrender.com</div>
+    </div>
+    <div class="mockui-body">
+      <div class="demo-header">
+        <h3>🍜 KOMOAN 予約管理画面</h3>
+        <p>管理者用ダッシュボード — 本日の予約状況</p>
+      </div>
+      <div class="demo-stats">
+        <div class="demo-stat">
+          <span class="val">12</span>
+          <div class="lbl">本日の予約数</div>
+        </div>
+        <div class="demo-stat">
+          <span class="val">43</span>
+          <div class="lbl">来客予定人数</div>
+        </div>
+        <div class="demo-stat">
+          <span class="val">3</span>
+          <div class="lbl">空席テーブル</div>
+        </div>
+      </div>
+      <div class="demo-reservations">
+        <div class="demo-res-title">直近の予約</div>
+        <div class="res-row">
+          <span class="res-time">11:30</span>
+          <span class="res-name">田中様 ×4名｜個室希望</span>
+          <span class="res-badge badge-confirmed">確定</span>
+        </div>
+        <div class="res-row">
+          <span class="res-time">12:00</span>
+          <span class="res-name">山田様 ×2名</span>
+          <span class="res-badge badge-confirmed">確定</span>
+        </div>
+        <div class="res-row">
+          <span class="res-time">12:30</span>
+          <span class="res-name">佐藤様 ×6名｜誕生日</span>
+          <span class="res-badge badge-new">新着</span>
+        </div>
+        <div class="res-row">
+          <span class="res-time">18:00</span>
+          <span class="res-name">鈴木様 ×8名｜貸切</span>
+          <span class="res-badge badge-confirmed">確定</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--gray);text-align:center;">↑ 実際の管理画面のデモをご案内できます</p>
+</div>
+
+<!-- TOOLS -->
+<div class="section">
+  <div class="section-title"><span class="icon">🛠️</span>飲食業界向け開発ラインナップ</div>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">📅</span>
+        <span class="tool-status status-live">● 稼働中</span>
+      </div>
+      <h4>飲食店予約システム</h4>
+      <p>Web予約・席数カスタム・管理画面・カレンダー・貸切・イベント対応</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">📊</span>
+        <span class="tool-status status-live">● 稼働中</span>
+      </div>
+      <h4>売上集計ツール</h4>
+      <p>消費税自動仕分け・決済別集計・CSV出力・税理士対応</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🥡</span>
+        <span class="tool-status status-dev">開発中</span>
+      </div>
+      <h4>テイクアウト受付</h4>
+      <p>Web注文受付・時間指定・厨房通知対応予定</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">📱</span>
+        <span class="tool-status status-dev">開発中</span>
+      </div>
+      <h4>セルフオーダーシステム</h4>
+      <p>既存端末を活用した低コスト型セルフオーダー</p>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="section-alt">
+  <div class="section-title"><span class="icon">🗺️</span>開発ロードマップ</div>
+  <div class="roadmap">
+    <div class="rm-item done">
+      <div class="rm-icon">✅</div>
+      <div class="rm-text">
+        <strong>飲食店予約システム（KOMOAN）</strong>
+        <span>席数・定休日・イベント・貸切。本番稼働中。</span>
+      </div>
+      <span class="rm-status rs-done">稼働中</span>
+    </div>
+    <div class="rm-item done">
+      <div class="rm-icon">✅</div>
+      <div class="rm-text">
+        <strong>売上集計ツール</strong>
+        <span>消費税自動仕分け・CSV出力。本番稼働中。</span>
+      </div>
+      <span class="rm-status rs-done">稼働中</span>
+    </div>
+    <div class="rm-item wip">
+      <div class="rm-icon">🔄</div>
+      <div class="rm-text">
+        <strong>テイクアウト受付システム</strong>
+        <span>電話受付をWeb化。厨房通知機能含めて開発中。</span>
+      </div>
+      <span class="rm-status rs-wip">開発中</span>
+    </div>
+    <div class="rm-item wip">
+      <div class="rm-icon">🔄</div>
+      <div class="rm-text">
+        <strong>セルフオーダー受注システム</strong>
+        <span>既存端末で導入できる低コスト型。</span>
+      </div>
+      <span class="rm-status rs-wip">開発中</span>
+    </div>
+    <div class="rm-item">
+      <div class="rm-icon">📋</div>
+      <div class="rm-text">
+        <strong>会計・レジ連携システム</strong>
+        <span>注文〜会計のシームレス化。企画中。</span>
+      </div>
+      <span class="rm-status rs-plan">計画中</span>
+    </div>
+  </div>
+</div>
+
+<!-- OTHER INDUSTRIES -->
+<div class="section">
+  <div class="section-title"><span class="icon">🌐</span>飲食以外への展開実績</div>
+  <p style="font-size:13px;color:var(--gray);margin-bottom:18px;line-height:1.8;">飲食が最注力領域ですが、PSLはどの業種でも対応します。実際に複数業種でのシステム開発・稼働実績があります。</p>
+  <div class="industry-mini">
+    <div class="ind-row">
+      <div class="ind-card">
+        <div class="ind-icon">✂️</div>
+        <h4>サロン・美容室</h4>
+        <p>自社予約システム<br>開発・稼働済み</p>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon">🔥</div>
+        <h4>消防設備会社</h4>
+        <p>4設備対応<br>点検管理システム</p>
+      </div>
+      <div class="ind-card">
+        <div class="ind-icon">🏠</div>
+        <h4>障害福祉施設</h4>
+        <p>日報・在庫管理<br>複数ツール稼働中</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>まず、話だけ聞いてみてください。</h2>
+  <p>費用・納期・できること、全部無料でお伝えします。<br>相談・見積もりに費用は一切かかりません。<br>強引な営業は一切しません。</p>
+  <a href="https://line.me/R/ti/p/@425ukgwa" class="cta-line" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINEで無料相談する
+  </a>
+  <p class="cta-contact">
+    📧 <a href="mailto:pumpstack.lab.2026@gmail.com">pumpstack.lab.2026@gmail.com</a><br>
+    🌐 <a href="index.html">pumpstack-lab.com</a>
+  </p>
+</div>
+
+</body>
+</html>
