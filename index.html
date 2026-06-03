@@ -75,7 +75,7 @@
       transform: translateX(-50%);
       width: min(900px, 110vw);
       height: auto;
-      opacity: 0.055;
+      opacity: 0.03;
       pointer-events: none;
       user-select: none;
       filter: saturate(0) brightness(3);
@@ -95,7 +95,15 @@
     .hero-inner {
       position: relative; z-index: 1; text-align: center; max-width: 900px; width: 100%;
     }
-    .hero-logo { display: none; }
+    .hero-logo {
+      display: block;
+      height: clamp(80px, 14vw, 140px);
+      width: auto;
+      margin: 0 auto 32px;
+      opacity: 0; transform: translateY(12px);
+      animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.05s forwards;
+      filter: drop-shadow(0 0 32px rgba(99,102,241,0.5));
+    }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       border: 1px solid rgba(99,102,241,0.4);
@@ -406,7 +414,7 @@
 
     /* reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      .hero-logo, .hero-eyebrow, .hero h1, .hero-sub, .hero-btns, .hero-note {
+      .hero-logo, .hero-eyebrow, .hero h1, .hero-sub, .hero-btns, .hero-stats, .hero-note {
         opacity: 1; transform: none; animation: none;
       }
     }
