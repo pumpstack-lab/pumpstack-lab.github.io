@@ -8,7 +8,7 @@
   <meta name="google" content="notranslate">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -27,7 +27,7 @@
       --amber: #d97706;
       --amber-bg: #fffbeb;
       --radius: 10px;
-      --font-display: 'Syne', sans-serif;
+      --font-display: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
       --font-body: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
     }
     html { scroll-behavior: smooth; }
@@ -201,18 +201,16 @@
       text-transform: uppercase; color: var(--blue); margin-bottom: 14px;
     }
 
-    /* タブ */
-    .tab-nav { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 36px; }
-    .tab-btn {
-      padding: 9px 20px; border-radius: 100px; border: 1px solid #e2e8f0;
-      background: white; font-size: 13px; font-weight: 700; cursor: pointer;
-      font-family: var(--font-body); color: var(--gray);
-      transition: all 0.15s;
+    /* 業種ブロック */
+    .industry-block { margin-top: 48px; }
+    .industry-block:first-of-type { margin-top: 40px; }
+    .industry-label {
+      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+      font-size: 13px; font-weight: 700; color: var(--gray);
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid #e2e8f0;
     }
-    .tab-btn:hover { border-color: var(--blue); color: var(--blue); }
-    .tab-btn.active { background: var(--dark-2); border-color: var(--dark-2); color: white; }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
+    .industry-icon { font-size: 16px; }
 
     /* カードグリッド — 大+小混在 */
     .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
@@ -485,20 +483,13 @@
     <div class="gallery-header">
       <div class="gallery-kicker">実績ギャラリー</div>
       <h2 class="section-title">PSLが作ってきたもの</h2>
-      <p class="section-sub">飲食店の予約管理から、施設の日報ツールまで。「できるかな？」という相談から始まったものばかりです。</p>
-    </div>
-
-    <div class="tab-nav">
-      <button class="tab-btn active" data-tab="food">🍜 飲食店</button>
-      <button class="tab-btn" data-tab="salon">✂️ サロン</button>
-      <button class="tab-btn" data-tab="shobo">🔥 消防設備</button>
-      <button class="tab-btn" data-tab="welfare">🏠 障害福祉</button>
+      <p class="section-sub">飲食・サロン・消防・福祉。業種を問わず、「できるかな？」という相談から始まったものばかりです。</p>
     </div>
 
     <!-- 飲食 -->
-    <div class="tab-panel active" id="tab-food" style="margin-top:28px;">
+    <div class="industry-block">
+      <div class="industry-label"><span class="industry-icon">🍜</span>飲食店</div>
       <div class="cards-grid has-featured">
-        <!-- featured -->
         <div class="product-card featured">
           <div class="card-body">
             <div style="margin-bottom:14px;"><span class="badge badge-live">稼働中</span></div>
@@ -510,32 +501,20 @@
           </div>
           <div class="featured-icon">📅</div>
         </div>
-        <!-- small cards -->
         <div class="product-card">
-          <div class="card-header">
-            <div class="card-icon">📊</div>
-            <span class="badge badge-live">稼働中</span>
-          </div>
+          <div class="card-header"><div class="card-icon">📊</div><span class="badge badge-live">稼働中</span></div>
           <h3>売上集計ツール</h3>
           <p>消費税8%・10%を自動仕分け。決済別集計・CSV出力で月末作業をゼロに。</p>
-          <a href="https://pumpstack-lab.github.io/sales-tool/" target="_blank" class="card-link">
-            デモを見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
+          <a href="https://pumpstack-lab.github.io/sales-tool/" target="_blank" class="card-link">デモを見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
         <div class="product-card">
-          <div class="card-header">
-            <div class="card-icon">🥡</div>
-            <span class="badge badge-dev">開発中</span>
-          </div>
+          <div class="card-header"><div class="card-icon">🥡</div><span class="badge badge-dev">開発中</span></div>
           <h3>テイクアウト受付システム</h3>
           <p>電話受付をWeb化。注文時間・内容を自動記録。厨房通知対応予定。</p>
           <p class="card-link-muted">近日リリース予定</p>
         </div>
         <div class="product-card">
-          <div class="card-header">
-            <div class="card-icon">📱</div>
-            <span class="badge badge-dev">開発中</span>
-          </div>
+          <div class="card-header"><div class="card-icon">📱</div><span class="badge badge-dev">開発中</span></div>
           <h3>セルフオーダーシステム</h3>
           <p>既存のスマホ・タブレットでセルフオーダーを実現。大手端末導入の10分の1以下のコストで導入できます。</p>
           <p class="card-link-muted">近日リリース予定</p>
@@ -543,8 +522,9 @@
       </div>
     </div>
 
-    <!-- サロン -->
-    <div class="tab-panel" id="tab-salon" style="margin-top:28px;">
+    <!-- サロン・消防・福祉 -->
+    <div class="industry-block">
+      <div class="industry-label"><span class="industry-icon">✂️</span>サロン・美容室 &nbsp;／&nbsp; <span class="industry-icon">🔥</span>消防設備 &nbsp;／&nbsp; <span class="industry-icon">🏠</span>障害福祉</div>
       <div class="cards-grid">
         <div class="product-card">
           <div class="card-header"><div class="card-icon">✂️</div><span class="badge badge-done">開発済み</span></div>
@@ -552,42 +532,27 @@
           <p>大手予約サイトへの手数料を削減。スタイリスト指名・メニュー別予約に対応した自社予約ページ。</p>
           <p class="card-link-muted">デモURLはご相談時にご案内します</p>
         </div>
-      </div>
-    </div>
-
-    <!-- 消防 -->
-    <div class="tab-panel" id="tab-shobo" style="margin-top:28px;">
-      <div class="cards-grid">
         <div class="product-card">
           <div class="card-header"><div class="card-icon">🔥</div><span class="badge badge-done">開発済み</span></div>
           <h3>消防点検管理システム</h3>
-          <p>消火器・自動火災報知設備・誘導灯・屋内消火栓の4設備対応。動的フォームで設備ごとの点検票を自動生成。PDF出力・物件別履歴管理。</p>
+          <p>消火器・自動火災報知設備・誘導灯・屋内消火栓の4設備対応。設備ごとの点検票を自動生成・PDF出力・物件別履歴管理。</p>
           <p class="card-link-muted">デモURLはご相談時にご案内します</p>
         </div>
-      </div>
-    </div>
-
-    <!-- 福祉 -->
-    <div class="tab-panel" id="tab-welfare" style="margin-top:28px;">
-      <div class="cards-grid">
         <div class="product-card">
           <div class="card-header"><div class="card-icon">📝</div><span class="badge badge-live">稼働中</span></div>
           <h3>グループホーム日報ツール</h3>
           <p>障害福祉施設の日報作成・提出・管理をWeb化。施設横断での記録閲覧・管理者ダッシュボード付き。6棟対応で稼働中。</p>
-          <a href="https://pumpstack-lab.github.io/gh-report-tool/" target="_blank" class="card-link">
-            デモを見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
+          <a href="https://pumpstack-lab.github.io/gh-report-tool/" target="_blank" class="card-link">デモを見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
         <div class="product-card">
           <div class="card-header"><div class="card-icon">📦</div><span class="badge badge-live">稼働中</span></div>
           <h3>在庫管理ツール</h3>
           <p>グループホームの日用品・消耗品を一元管理。26品目プリセット・週平均アラート・CSV出力。複数施設での共同利用対応。</p>
-          <a href="https://inventory-tool-zbuj.onrender.com" target="_blank" class="card-link">
-            デモを見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
+          <a href="https://inventory-tool-zbuj.onrender.com" target="_blank" class="card-link">デモを見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -695,18 +660,5 @@
   無料相談
 </a>
 
-<script>
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.tab;
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabPanels.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('tab-' + target).classList.add('active');
-    });
-  });
-</script>
 </body>
 </html>
