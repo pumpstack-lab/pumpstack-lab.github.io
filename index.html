@@ -53,100 +53,119 @@
     /* ===== HERO ===== */
     .hero {
       min-height: 100svh;
-      padding: 120px 24px 80px;
+      padding: 120px 24px 100px;
       background: var(--dark);
       color: white;
       position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
-    /* グリッドパターン */
     .hero::before {
       content: '';
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(37,99,235,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37,99,235,0.07) 1px, transparent 1px);
-      background-size: 48px 48px;
+        linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
+      background-size: 56px 56px;
       pointer-events: none;
     }
-    /* 光彩 */
-    /* ロゴ背景（大） */
+    /* ロゴ背景 — テキストの下・大きく */
     .hero-bg-logo {
       position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: min(700px, 90vw);
+      bottom: -8%; left: 50%;
+      transform: translateX(-50%);
+      width: min(900px, 110vw);
       height: auto;
-      opacity: 0.07;
+      opacity: 0.055;
       pointer-events: none;
       user-select: none;
-      filter: saturate(0) brightness(2);
+      filter: saturate(0) brightness(3);
     }
     .hero-glow-1 {
-      position: absolute; top: -20%; left: -10%;
-      width: 70%; height: 80%;
-      background: radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, transparent 65%);
+      position: absolute; top: -30%; left: -15%;
+      width: 80%; height: 90%;
+      background: radial-gradient(ellipse, rgba(37,99,235,0.2) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-glow-2 {
-      position: absolute; bottom: -10%; right: -5%;
-      width: 55%; height: 70%;
-      background: radial-gradient(ellipse, rgba(124,58,237,0.14) 0%, transparent 65%);
+      position: absolute; bottom: -15%; right: -10%;
+      width: 60%; height: 80%;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.16) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-inner {
-      position: relative; z-index: 1; text-align: center; max-width: 760px;
+      position: relative; z-index: 1; text-align: center; max-width: 900px; width: 100%;
     }
     .hero-logo { display: none; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       border: 1px solid rgba(99,102,241,0.4);
-      color: #a5b4fc; padding: 6px 16px; border-radius: 100px;
-      font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
-      margin-bottom: 28px;
-      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+      color: #a5b4fc; padding: 7px 18px; border-radius: 100px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+      margin-bottom: 36px;
+      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s forwards;
     }
     .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #818cf8; display: inline-block; }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      font-size: clamp(2.8rem, 7.5vw, 5.6rem);
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 28px;
       text-wrap: balance;
-      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;
     }
     .hero h1 .accent { color: #60a5fa; }
     .hero-sub {
-      font-size: clamp(15px, 2.2vw, 17px);
-      color: #94a3b8; line-height: 1.9;
-      margin-bottom: 44px; max-width: 520px; margin-left: auto; margin-right: auto;
-      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
+      font-size: clamp(15px, 2vw, 18px);
+      color: #64748b; line-height: 1.9;
+      margin-bottom: 48px; max-width: 480px; margin-left: auto; margin-right: auto;
+      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s forwards;
     }
     .hero-btns {
-      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;
-      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px;
+      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.45s forwards;
     }
     .btn-line {
-      background: #06c755; color: white; padding: 16px 32px; border-radius: 100px;
-      font-size: 15px; font-weight: 700; text-decoration: none; display: inline-flex;
-      align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      background: #06c755; color: white; padding: 18px 38px; border-radius: 100px;
+      font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex;
+      align-items: center; gap: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.35);
       font-family: var(--font-body);
       transition: transform 0.18s cubic-bezier(0.16,1,0.3,1);
     }
     .btn-line:hover { transform: translateY(-2px); }
     .btn-outline {
-      background: transparent; color: white; padding: 16px 32px; border-radius: 100px;
-      font-size: 15px; font-weight: 700; text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent; color: white; padding: 18px 38px; border-radius: 100px;
+      font-size: 16px; font-weight: 700; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.18);
       font-family: var(--font-body);
       transition: border-color 0.15s, background 0.15s;
     }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.04); }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.04); }
+    /* ヒーロー内stats */
+    .hero-stats {
+      display: flex; justify-content: center; gap: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; overflow: hidden;
+      max-width: 640px; margin: 0 auto 28px;
+      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.55s forwards;
+    }
+    .hero-stat {
+      flex: 1; padding: 20px 16px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800; color: white; display: block;
+      letter-spacing: -0.03em; line-height: 1;
+      margin-bottom: 6px;
+    }
+    .hero-stat-label { font-size: 11px; color: #475569; line-height: 1.4; }
     .hero-note {
-      color: #475569; font-size: 12px;
-      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+      color: #334155; font-size: 12px;
+      opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.65s forwards;
     }
 
     @keyframes fadeUp {
@@ -364,11 +383,13 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 680px) {
       section { padding: 72px 20px; }
-      .hero { padding: 110px 20px 64px; min-height: auto; }
-      .hero-logo { height: 56px; }
+      .hero { padding: 110px 20px 72px; min-height: auto; }
       .hero h1 { letter-spacing: -0.02em; }
       .hero-btns { flex-direction: column; align-items: center; }
       .btn-line, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+      .hero-stats { max-width: 100%; border-radius: 12px; }
+      .hero-stat { padding: 14px 8px; }
+      .hero-stat-num { font-size: 1.3rem; }
       .cards-grid.has-featured { grid-template-columns: 1fr; }
       .product-card.featured { flex-direction: column; grid-column: span 1; }
       .featured-icon { display: none; }
@@ -416,12 +437,10 @@
       飲食・サロン・福祉・消防 — 6つのツールが稼働中
     </div>
     <h1>
-      業務の困りごとを、<br>
-      <span class="accent">テクノロジーで解決する。</span>
+      業務の困りごとを、<br><span class="accent">テクノロジーで解決する。</span>
     </h1>
     <p class="hero-sub">
-      相談から設計・開発・導入まで、PSLが全部担います。<br>
-      業種を問わず、現場の「こうなればいい」を形にしてきました。
+      相談から設計・開発・導入まで PSL が全部担います。<br>飲食・サロン・福祉・消防、業種を問わず対応しています。
     </p>
     <div class="hero-btns">
       <a href="https://line.me/R/ti/p/@425ukgwa" class="btn-line" target="_blank">
@@ -430,7 +449,25 @@
       </a>
       <a href="#gallery" class="btn-outline">稼働実績を見る</a>
     </div>
-    <p class="hero-note">相談・見積もり無料 ／ 強引な営業は一切しません</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">6+</span>
+        <div class="hero-stat-label">稼働中の<br>ツール</div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">4</span>
+        <div class="hero-stat-label">対応<br>業種</div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">最短3日</span>
+        <div class="hero-stat-label">スピード<br>納品</div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">¥0</span>
+        <div class="hero-stat-label">相談・<br>見積もり</div>
+      </div>
+    </div>
+    <p class="hero-note">強引な営業は一切しません</p>
   </div>
 </section>
 
