@@ -82,18 +82,23 @@
     }
     .hero-layout {
       position: relative; z-index: 2;
-      display: grid; grid-template-columns: 1fr 340px; gap: 60px;
+      display: grid; grid-template-columns: 1fr 520px; gap: 48px;
       align-items: center;
     }
-    @media (max-width: 860px) {
+    @media (max-width: 1000px) {
       .hero-layout { grid-template-columns: 1fr; }
       .hero-mockup-wrap { display: none; }
     }
     .hero-inner { max-width: 600px; }
 
-    /* スマホモックアップ */
+    /* スマホモックアップ2台 */
     .hero-mockup-wrap {
-      display: flex; justify-content: center; align-items: center;
+      display: flex; gap: 16px; align-items: flex-start;
+      justify-content: center;
+    }
+    /* 2台目を少し下にずらして奥行き感を出す */
+    .hero-mockup-wrap .phone-frame:nth-child(2) {
+      margin-top: 40px;
     }
     .phone-frame {
       width: 240px;
@@ -165,6 +170,59 @@
       width: 80px; height: 4px;
       background: rgba(255,255,255,0.3); border-radius: 2px;
       margin: 10px auto 0;
+    }
+
+    /* 座席表モック */
+    .seat-screen {
+      background: white; border-radius: 16px; overflow: hidden;
+      font-size: 9px; color: #1e293b;
+    }
+    .seat-header {
+      background: #7c3aed; color: white;
+      padding: 8px 10px 6px;
+    }
+    .seat-header-title { font-size: 10px; font-weight: 700; }
+    .seat-header-sub { font-size: 8px; opacity: 0.8; margin-top: 1px; }
+    .seat-area-label {
+      font-size: 8px; font-weight: 700; color: #6d28d9;
+      padding: 6px 10px 3px; background: #f5f3ff;
+      border-bottom: 1px solid #ede9fe;
+    }
+    .seat-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 5px; padding: 8px 10px;
+    }
+    .seat-cell {
+      aspect-ratio: 1; border-radius: 5px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-size: 7px; font-weight: 700; line-height: 1.2;
+      border: 1px solid transparent;
+    }
+    .seat-cell--empty {
+      background: #f0fdf4; border-color: #bbf7d0; color: #15803d;
+    }
+    .seat-cell--taken {
+      background: #fef2f2; border-color: #fecaca; color: #dc2626;
+    }
+    .seat-cell--reserved {
+      background: #fffbeb; border-color: #fde68a; color: #d97706;
+    }
+    .seat-cell--disabled {
+      background: #f1f5f9; border-color: #e2e8f0; color: #94a3b8;
+    }
+    .seat-icon { font-size: 10px; margin-bottom: 1px; }
+    .seat-legend {
+      display: flex; gap: 6px; padding: 6px 10px;
+      background: #f8fafc; border-top: 1px solid #f1f5f9;
+      flex-wrap: wrap;
+    }
+    .seat-legend-item {
+      display: flex; align-items: center; gap: 3px;
+      font-size: 7px; color: #64748b;
+    }
+    .seat-legend-dot {
+      width: 6px; height: 6px; border-radius: 2px;
     }
     .hero-kicker {
       display: inline-block; font-size: 11px; font-weight: 700;
@@ -431,6 +489,43 @@
               </div>
               <div class="phone-home-bar"></div>
             </div>
+
+            <!-- 2台目：座席表モック -->
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="seat-screen">
+                <div class="seat-header">
+                  <div class="seat-header-title">座席マップ</div>
+                  <div class="seat-header-sub">18:00 の空き状況</div>
+                </div>
+                <div class="seat-area-label">▸ テーブル席</div>
+                <div class="seat-grid">
+                  <div class="seat-cell seat-cell--taken"><div class="seat-icon">🪑</div>T1<br>使用中</div>
+                  <div class="seat-cell seat-cell--empty"><div class="seat-icon">🪑</div>T2<br>空き</div>
+                  <div class="seat-cell seat-cell--reserved"><div class="seat-icon">🪑</div>T3<br>予約</div>
+                  <div class="seat-cell seat-cell--empty"><div class="seat-icon">🪑</div>T4<br>空き</div>
+                  <div class="seat-cell seat-cell--empty"><div class="seat-icon">🪑</div>T5<br>空き</div>
+                  <div class="seat-cell seat-cell--taken"><div class="seat-icon">🪑</div>T6<br>使用中</div>
+                  <div class="seat-cell seat-cell--reserved"><div class="seat-icon">🪑</div>T7<br>予約</div>
+                  <div class="seat-cell seat-cell--empty"><div class="seat-icon">🪑</div>T8<br>空き</div>
+                </div>
+                <div class="seat-area-label">▸ カウンター</div>
+                <div class="seat-grid">
+                  <div class="seat-cell seat-cell--taken"><div class="seat-icon">🪑</div>C1<br>使用中</div>
+                  <div class="seat-cell seat-cell--taken"><div class="seat-icon">🪑</div>C2<br>使用中</div>
+                  <div class="seat-cell seat-cell--empty"><div class="seat-icon">🪑</div>C3<br>空き</div>
+                  <div class="seat-cell seat-cell--disabled"><div class="seat-icon">🪑</div>C4<br>停止</div>
+                </div>
+                <div class="seat-legend">
+                  <div class="seat-legend-item"><div class="seat-legend-dot" style="background:#bbf7d0"></div>空き</div>
+                  <div class="seat-legend-item"><div class="seat-legend-dot" style="background:#fecaca"></div>使用中</div>
+                  <div class="seat-legend-item"><div class="seat-legend-dot" style="background:#fde68a"></div>予約済</div>
+                  <div class="seat-legend-item"><div class="seat-legend-dot" style="background:#e2e8f0"></div>停止</div>
+                </div>
+              </div>
+              <div class="phone-home-bar"></div>
+            </div>
+
           </div><!-- /.hero-mockup-wrap -->
 
         </div><!-- /.hero-layout -->
