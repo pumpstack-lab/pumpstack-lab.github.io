@@ -80,7 +80,92 @@
       background: linear-gradient(160deg, rgba(10,15,30,0.72) 0%, rgba(13,27,62,0.65) 100%);
       z-index: 1; pointer-events: none;
     }
-    .hero-inner { position: relative; z-index: 2; max-width: 720px; }
+    .hero-layout {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 340px; gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-mockup-wrap { display: none; }
+    }
+    .hero-inner { max-width: 600px; }
+
+    /* スマホモックアップ */
+    .hero-mockup-wrap {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .phone-frame {
+      width: 240px;
+      background: #0f172a;
+      border-radius: 36px;
+      border: 6px solid rgba(255,255,255,0.15);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 32px 64px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+      padding: 20px 12px 24px;
+      position: relative;
+    }
+    .phone-notch {
+      width: 80px; height: 20px;
+      background: #0f172a;
+      border-radius: 0 0 14px 14px;
+      margin: 0 auto 12px;
+      border: 3px solid rgba(255,255,255,0.08);
+      border-top: none;
+    }
+    .phone-screen {
+      background: white; border-radius: 16px; overflow: hidden;
+      font-size: 9px; color: #1e293b;
+    }
+    .ps-header {
+      background: #2563eb; color: white;
+      padding: 8px 10px 6px;
+    }
+    .ps-header-title { font-size: 10px; font-weight: 700; }
+    .ps-header-sub { font-size: 8px; opacity: 0.8; margin-top: 1px; }
+    .ps-date-bar {
+      background: #eff6ff; padding: 6px 10px;
+      font-size: 8px; font-weight: 700; color: #1d4ed8;
+      border-bottom: 1px solid #dbeafe;
+    }
+    .ps-row {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 10px; border-bottom: 1px solid #f1f5f9;
+    }
+    .ps-row:last-child { border-bottom: none; }
+    .ps-dot {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    }
+    .ps-dot--blue { background: #2563eb; }
+    .ps-dot--green { background: #16a34a; }
+    .ps-dot--amber { background: #d97706; }
+    .ps-row-info { flex: 1; }
+    .ps-row-name { font-size: 9px; font-weight: 700; color: #0f172a; }
+    .ps-row-detail { font-size: 7.5px; color: #64748b; margin-top: 1px; }
+    .ps-row-badge {
+      font-size: 7px; font-weight: 700; padding: 2px 5px;
+      border-radius: 4px; flex-shrink: 0;
+    }
+    .ps-badge--blue { background: #dbeafe; color: #1d4ed8; }
+    .ps-badge--green { background: #dcfce7; color: #15803d; }
+    .ps-badge--amber { background: #fef3c7; color: #b45309; }
+    .ps-footer {
+      background: #f8fafc; padding: 8px 10px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .ps-footer-count { font-size: 8px; color: #64748b; }
+    .ps-footer-btn {
+      background: #2563eb; color: white;
+      font-size: 7.5px; font-weight: 700;
+      padding: 4px 8px; border-radius: 6px;
+    }
+    .phone-home-bar {
+      width: 80px; height: 4px;
+      background: rgba(255,255,255,0.3); border-radius: 2px;
+      margin: 10px auto 0;
+    }
     .hero-kicker {
       display: inline-block; font-size: 11px; font-weight: 700;
       letter-spacing: .14em; color: var(--violet-light);
@@ -279,7 +364,8 @@
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="container">
-        <div class="hero-inner">
+        <div class="hero-layout">
+          <div class="hero-inner">
           <span class="hero-kicker">飲食店向け 予約システム</span>
           <h1>ネット予約を、<br><em>あなたの店専用に</em><br>最短3日で作ります。</h1>
           <p class="hero-sub">既存の大手SaaSと違い、席・時間・ルールをすべて御社に合わせてカスタム設定します。テンプレートではなく、あなたの店のためだけに作るシステムです。</p>
@@ -294,7 +380,60 @@
             LINEで無料相談（0円）
           </a>
           <p class="btn-sub">相談だけでも大丈夫です。しつこい営業は一切しません。</p>
-        </div>
+          </div><!-- /.hero-inner -->
+
+          <!-- スマホモックアップ -->
+          <div class="hero-mockup-wrap">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="ps-header">
+                  <div class="ps-header-title">予約管理</div>
+                  <div class="ps-header-sub">こもれびホール — 本日の予約</div>
+                </div>
+                <div class="ps-date-bar">2026年6月4日（水）｜ 5件</div>
+                <div class="ps-row">
+                  <div class="ps-dot ps-dot--blue"></div>
+                  <div class="ps-row-info">
+                    <div class="ps-row-name">山田 様 × 2名</div>
+                    <div class="ps-row-detail">12:00 · テーブル席</div>
+                  </div>
+                  <div class="ps-row-badge ps-badge--blue">確定</div>
+                </div>
+                <div class="ps-row">
+                  <div class="ps-dot ps-dot--green"></div>
+                  <div class="ps-row-info">
+                    <div class="ps-row-name">佐藤 様 × 4名</div>
+                    <div class="ps-row-detail">18:00 · 座敷</div>
+                  </div>
+                  <div class="ps-row-badge ps-badge--green">確定</div>
+                </div>
+                <div class="ps-row">
+                  <div class="ps-dot ps-dot--amber"></div>
+                  <div class="ps-row-info">
+                    <div class="ps-row-name">田中 様 × 6名</div>
+                    <div class="ps-row-detail">19:30 · 個室</div>
+                  </div>
+                  <div class="ps-row-badge ps-badge--amber">要確認</div>
+                </div>
+                <div class="ps-row">
+                  <div class="ps-dot ps-dot--blue"></div>
+                  <div class="ps-row-info">
+                    <div class="ps-row-name">鈴木 様 × 2名</div>
+                    <div class="ps-row-detail">20:00 · カウンター</div>
+                  </div>
+                  <div class="ps-row-badge ps-badge--blue">確定</div>
+                </div>
+                <div class="ps-footer">
+                  <div class="ps-footer-count">合計 14名</div>
+                  <div class="ps-footer-btn">＋ 予約追加</div>
+                </div>
+              </div>
+              <div class="phone-home-bar"></div>
+            </div>
+          </div><!-- /.hero-mockup-wrap -->
+
+        </div><!-- /.hero-layout -->
       </div>
     </section>
 
