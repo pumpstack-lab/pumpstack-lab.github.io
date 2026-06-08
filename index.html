@@ -120,7 +120,7 @@
       line-height: 1.05;
       letter-spacing: -0.04em;
       margin-bottom: 28px;
-      text-wrap: balance;
+      text-wrap: nowrap;
       opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;
     }
     .hero h1 .accent { color: #60a5fa; }
@@ -390,7 +390,7 @@
     @media (max-width: 680px) {
       section { padding: 72px 20px; }
       .hero { padding: 110px 20px 72px; min-height: auto; }
-      .hero h1 { letter-spacing: -0.02em; }
+      .hero h1 { letter-spacing: -0.02em; text-wrap: nowrap; font-size: clamp(1.8rem, 7.5vw, 2.6rem); }
       .hero-btns { flex-direction: column; align-items: center; }
       .btn-line, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
       .hero-stats { max-width: 100%; border-radius: 12px; }
@@ -440,13 +440,14 @@
     <img src="logo.png" alt="PumpStack Lab." class="hero-logo">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>
-      飲食・サロン・福祉・消防 — 6つのツールが稼働中
+      飲食・サロン・福祉・消防 — 3つのツールが稼働中
     </div>
     <h1>
-      業種問わず、<br><span class="accent">業務ツールを最短3日で作ります。</span>
+      「あったらいいな」を、<br>
+      <span class="accent">作ります。</span>
     </h1>
     <p class="hero-sub">
-      相談から設計・開発・導入まで PSL が全部担います。<br>業種を問わず、現場の「こうなればいい」を形にしてきました。
+      予約管理・業務効率化——<br>現場の声をそのままツールにしてきました。
     </p>
     <div class="hero-btns">
       <a href="https://line.me/R/ti/p/@425ukgwa" class="btn-line" target="_blank">
@@ -458,7 +459,7 @@
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-num">6+</span>
-        <div class="hero-stat-label">稼働中の<br>ツール</div>
+        <div class="hero-stat-label">開発した<br>ツール</div>
       </div>
       <div class="hero-stat">
         <span class="hero-stat-num">4</span>
@@ -494,7 +495,7 @@
           <div class="card-body">
             <div style="margin-bottom:14px;"><span class="badge badge-live">稼働中</span></div>
             <h3>飲食店予約システム</h3>
-            <p style="margin-top:8px;">席数・営業時間・定休日をフルカスタム。ゲスト予約フォームと管理画面をセットで提供。月間カレンダー・貸切・イベント設定まで対応済み。<strong style="color:#4ade80;">実店舗テスト稼働中。</strong></p>
+            <p style="margin-top:8px;">席数・営業時間・定休日をフルカスタム。ゲスト予約フォームと管理画面をセットで提供。月間カレンダー・貸切・イベント設定まで対応済み。<br><strong style="color:#4ade80;">実店舗テスト稼働中。</strong></p>
             <a href="products/restaurant-reservation.html" class="card-link card-link-featured" style="margin-top:16px;display:inline-flex;">
               詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
@@ -502,10 +503,10 @@
           <div class="featured-icon">📅</div>
         </div>
         <div class="product-card">
-          <div class="card-header"><div class="card-icon">📊</div><span class="badge badge-live">稼働中</span></div>
+          <div class="card-header"><div class="card-icon">📊</div><span class="badge badge-dev">開発中</span></div>
           <h3>売上集計ツール</h3>
           <p>消費税8%・10%を自動仕分け。決済別集計・CSV出力で月末作業をゼロに。</p>
-          <p class="card-link-muted">詳細はご相談時にご案内します</p>
+          <p class="card-link-muted">近日リリース予定</p>
         </div>
         <div class="product-card">
           <div class="card-header"><div class="card-icon">🥡</div><span class="badge badge-dev">開発中</span></div>
@@ -541,13 +542,13 @@
         <div class="product-card">
           <div class="card-header"><div class="card-icon">📝</div><span class="badge badge-live">稼働中</span></div>
           <h3>グループホーム日報ツール</h3>
-          <p>障害福祉施設の日報作成・提出・管理をWeb化。施設横断での記録閲覧・管理者ダッシュボード付き。<strong style="color:var(--green);">こもれびホーム6棟で稼働中。</strong></p>
+          <p>障害福祉施設の日報作成・提出・管理をWeb化。施設横断での記録閲覧・管理者ダッシュボード付き。<strong style="color:var(--green);">福岡県内某グループホーム6棟で稼働中。</strong></p>
           <p class="card-link-muted">詳細はご相談時にご案内します</p>
         </div>
         <div class="product-card">
           <div class="card-header"><div class="card-icon">📦</div><span class="badge badge-live">稼働中</span></div>
           <h3>在庫管理ツール</h3>
-          <p>グループホームの日用品・消耗品を一元管理。26品目プリセット・週平均アラート・CSV出力。<strong style="color:var(--green);">こもれびホーム複数拠点で稼働中。</strong></p>
+          <p>グループホームの日用品・消耗品を一元管理。26品目プリセット・週平均アラート・CSV出力。<strong style="color:var(--green);">福岡県内某グループホーム複数拠点で稼働中。</strong></p>
           <p class="card-link-muted">詳細はご相談時にご案内します</p>
         </div>
       </div>
@@ -567,13 +568,13 @@
       <div class="flow-node"><div class="flow-circle">📅</div><h4>予約受付</h4><p>Web予約で<br>電話ゼロへ</p></div>
       <div class="flow-node"><div class="flow-circle">🥡</div><h4>テイクアウト</h4><p>注文を<br>自動記録</p></div>
       <div class="flow-node"><div class="flow-circle">📱</div><h4>オーダー</h4><p>セルフで<br>ミスゼロへ</p></div>
-      <div class="flow-node"><div class="flow-circle">📊</div><h4>売上集計</h4><p>月末作業を<br>自動化</p></div>
+      <div class="flow-node" style="opacity:0.5;"><div class="flow-circle">📊</div><h4>売上集計</h4><p>開発中</p></div>
     </div>
 
     <p class="roadmap-title">開発ロードマップ</p>
     <div class="roadmap">
       <div class="roadmap-item done"><div class="roadmap-icon">✅</div><div class="roadmap-text"><strong>飲食店予約システム</strong><span>席数・定休日・イベント・貸切対応。本番稼働中。</span></div><span class="rm-status rs-done">稼働中</span></div>
-      <div class="roadmap-item done"><div class="roadmap-icon">✅</div><div class="roadmap-text"><strong>売上集計ツール</strong><span>消費税自動仕分け・CSV出力。本番稼働中。</span></div><span class="rm-status rs-done">稼働中</span></div>
+      <div class="roadmap-item wip"><div class="roadmap-icon">🔄</div><div class="roadmap-text"><strong>売上集計ツール</strong><span>消費税自動仕分け・CSV出力。開発中。</span></div><span class="rm-status rs-wip">開発中</span></div>
       <div class="roadmap-item wip"><div class="roadmap-icon">🔄</div><div class="roadmap-text"><strong>テイクアウト受付システム</strong><span>電話受付をWeb化。厨房通知機能を含めて開発中。</span></div><span class="rm-status rs-wip">開発中</span></div>
       <div class="roadmap-item wip"><div class="roadmap-icon">🔄</div><div class="roadmap-text"><strong>セルフオーダー受注システム</strong><span>既存端末で導入できる低コスト型。</span></div><span class="rm-status rs-wip">開発中</span></div>
       <div class="roadmap-item"><div class="roadmap-icon">📋</div><div class="roadmap-text"><strong>会計・レジ連携システム</strong><span>注文から会計のシームレス化。企画中。</span></div><span class="rm-status rs-plan">計画中</span></div>
