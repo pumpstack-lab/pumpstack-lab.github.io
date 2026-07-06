@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!-- PDF再生成は必ずオンラインで行うこと（Google Fonts必須）。再生成後は2ページ・文字切れなしを目視確認。オフラインだとフォント代替で無警告クリップの恐れあり -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TableStack（テーブルスタック）｜店舗配布用1枚紙</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-bg: #eff6ff;
+      --violet: #7c3aed;
+      --dark: #0a0f1e;
+      --ink: #1e293b;
+      --gray: #475569;
+      --line-green: #06c755;
+      --border: #dbe3ee;
+    }
+    @page { size: A4; margin: 0; }
+    html, body { background: #e8ecf2; }
+    body { font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif; color: var(--ink); line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page {
+      width: 210mm; height: 296mm;
+      background: white;
+      margin: 0 auto;
+      padding: 12mm 14mm;
+      page-break-after: always;
+      overflow: hidden;
+      position: relative;
+      display: flex; flex-direction: column;
+    }
+    @media screen { .page { margin: 16px auto; box-shadow: 0 4px 24px rgba(10,15,30,0.15); } }
+
+    /* ===== 共通 ===== */
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6mm; }
+    .topbar img { height: 11mm; width: auto; }
+    .topbar .by { font-size: 8.5pt; color: var(--gray); letter-spacing: 0.04em; }
+    .sec-label {
+      display: inline-block; font-size: 9pt; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--blue); border-bottom: 2px solid var(--blue);
+      padding-bottom: 1mm; margin-bottom: 3mm;
+    }
+    .page-back .topbar { margin-bottom: 4mm; }
+    .page-back .sec-label { margin-bottom: 2.5mm; }
+
+    /* ===== 表面 ===== */
+    .brand-row { display: flex; align-items: baseline; gap: 4mm; margin-bottom: 2mm; }
+    .brand-name { font-size: 26pt; font-weight: 900; letter-spacing: -0.02em; color: var(--dark); }
+    .brand-name .yomi { font-size: 10pt; font-weight: 500; color: var(--gray); letter-spacing: 0; }
+    .kicker {
+      display: inline-block; background: var(--dark); color: white;
+      font-size: 9.5pt; font-weight: 700; padding: 1.2mm 4mm; border-radius: 100px;
+      margin-bottom: 6mm;
+    }
+    .catch {
+      font-size: 30pt; font-weight: 900; line-height: 1.25; letter-spacing: -0.01em;
+      color: var(--dark); margin-bottom: 4mm;
+    }
+    .catch .accent { color: var(--blue); }
+    .lead { font-size: 10.5pt; color: var(--gray); margin-bottom: 5mm; max-width: 165mm; }
+
+    .pain-box { background: var(--blue-bg); border-radius: 4mm; padding: 5mm 7mm; margin-bottom: 4mm; }
+    .pain-box h2 { font-size: 12.5pt; font-weight: 900; color: var(--dark); margin-bottom: 3.5mm; }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: 2.5mm; }
+    .pain-list li { display: flex; gap: 3mm; font-size: 10.5pt; font-weight: 500; align-items: baseline; }
+    .pain-list li::before { content: '✕'; color: #dc2626; font-weight: 900; flex-shrink: 0; }
+
+    .arrow-divider { text-align: center; font-size: 14pt; color: var(--blue); font-weight: 900; margin: 0 0 3mm; }
+
+    .gain-box { border: 2.5px solid var(--blue); border-radius: 4mm; padding: 5mm 7mm; }
+    .gain-box h2 { font-size: 13.5pt; font-weight: 900; color: var(--dark); margin-bottom: 4mm; }
+    .gain-box h2 .ts { color: var(--blue); }
+    .gain-list { list-style: none; display: flex; flex-direction: column; gap: 2.8mm; }
+    .gain-list li { display: flex; gap: 3mm; font-size: 11pt; align-items: baseline; }
+    .gain-list li::before { content: '✓'; color: var(--blue); font-weight: 900; flex-shrink: 0; font-size: 12pt; }
+    .gain-list li strong { font-weight: 900; color: var(--dark); }
+
+    .ai-strip {
+      margin-top: 3.5mm;
+      border: 2px dashed var(--violet); border-radius: 3mm;
+      background: #f5f3ff; padding: 4mm 6mm;
+      display: flex; align-items: center; gap: 4mm;
+    }
+    .ai-strip .ai-icon { font-size: 16pt; flex-shrink: 0; }
+    .ai-strip h3 { font-size: 11.5pt; font-weight: 900; color: var(--violet); margin-bottom: 1mm; }
+    .ai-strip h3 .ai-price { font-size: 9pt; font-weight: 700; color: var(--ink); margin-left: 2mm; }
+    .ai-strip p { font-size: 9.5pt; color: var(--ink); line-height: 1.6; }
+    .proof-strip {
+      margin-top: auto;
+      background: var(--dark); color: white; border-radius: 3mm;
+      padding: 4.5mm 7mm; display: flex; align-items: center; gap: 5mm;
+      font-size: 10pt;
+    }
+    .proof-strip .dot { width: 2.6mm; height: 2.6mm; border-radius: 50%; background: #4ade80; flex-shrink: 0; }
+    .proof-strip strong { font-weight: 900; }
+    .proof-strip .page-hint { margin-left: auto; font-size: 8pt; color: #94a3b8; white-space: nowrap; }
+
+    /* ===== 裏面 ===== */
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5mm; margin-bottom: 4mm; }
+    .feature-cell { border: 1px solid var(--border); border-radius: 3mm; padding: 3mm 3.5mm; }
+    .feature-cell .f-icon { font-size: 13pt; margin-bottom: 1mm; }
+    .feature-cell h3 { font-size: 9.5pt; font-weight: 900; color: var(--dark); line-height: 1.4; margin-bottom: 1mm; }
+    .feature-cell p { font-size: 8.5pt; color: var(--gray); line-height: 1.55; }
+
+    .price-box {
+      background: var(--blue-bg); border-radius: 4mm; padding: 3.5mm 7mm; margin-bottom: 4mm;
+      display: flex; align-items: center; gap: 2.5mm 8mm; flex-wrap: wrap;
+    }
+    .price-main { font-size: 10pt; font-weight: 700; color: var(--gray); }
+    .price-main .num { font-size: 19pt; font-weight: 900; color: var(--dark); letter-spacing: -0.01em; }
+    .price-main .tax { font-size: 8.5pt; font-weight: 500; }
+    .price-tags { display: flex; gap: 2.5mm; flex-wrap: wrap; }
+    .price-tag {
+      background: white; border: 1px solid var(--blue); color: var(--blue-dark);
+      font-size: 8.5pt; font-weight: 700; padding: 1mm 3.5mm; border-radius: 100px;
+    }
+
+    .why2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-bottom: 4mm; }
+    .why2-cell { background: var(--dark); color: white; border-radius: 3mm; padding: 3mm 5mm; }
+    .why2-cell h3 { font-size: 11pt; font-weight: 900; margin-bottom: 1.5mm; }
+    .why2-cell h3 .num { color: #818cf8; margin-right: 2mm; }
+    .why2-cell p { font-size: 8.5pt; color: #cbd5e1; line-height: 1.6; }
+
+    .faq { margin-bottom: 3mm; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 2mm 0; }
+    .faq-item:first-of-type { border-top: 1px solid var(--border); }
+    .faq-q { font-size: 10pt; font-weight: 900; color: var(--dark); display: flex; gap: 2.5mm; }
+    .faq-q::before { content: 'Q.'; color: var(--blue); flex-shrink: 0; }
+    .faq-a { font-size: 9.5pt; color: var(--gray); display: flex; gap: 2.5mm; margin-top: 1mm; }
+    .faq-a::before { content: 'A.'; color: var(--violet); font-weight: 900; flex-shrink: 0; }
+
+    .cta-band {
+      margin-top: auto;
+      background: var(--dark); border-radius: 4mm; padding: 4mm 7mm;
+      display: flex; align-items: center; gap: 7mm; color: white;
+    }
+    .cta-text { flex: 1; }
+    .cta-text h2 { font-size: 15pt; font-weight: 900; line-height: 1.4; margin-bottom: 2mm; }
+    .cta-text h2 .line-word { color: #4ade80; }
+    .cta-text p { font-size: 9pt; color: #94a3b8; line-height: 1.7; }
+    .cta-text .mail { color: #cbd5e1; font-weight: 700; }
+    .qr-wrap { background: white; border-radius: 3mm; padding: 3mm; flex-shrink: 0; text-align: center; }
+    .qr-wrap img { width: 23mm; height: 23mm; display: block; }
+    .qr-wrap span { display: block; font-size: 7.5pt; font-weight: 700; color: var(--dark); margin-top: 1mm; }
+  </style>
+</head>
+<body>
+
+<!-- ============ 表面 ============ -->
+<div class="page">
+  <div class="topbar">
+    <img src="logo-dark.png" alt="PumpStack Lab.">
+    <span class="by">by PumpStack Lab.（PSL）</span>
+  </div>
+
+  <div class="brand-row">
+    <span class="brand-name">TableStack <span class="yomi">テーブルスタック</span></span>
+  </div>
+  <span class="kicker">あなたの店専用に作る、オーダーメイド予約システム</span>
+
+  <h1 class="catch">予約の電話、<br><span class="accent">鳴らなくなります。</span></h1>
+  <p class="lead">営業中に鳴り続ける予約電話、手書き台帳のダブルブッキング、大手サイトの手数料。TableStackは既製品ではありません——あなたの店の席・営業時間・独自ルールに合わせて、<strong>一軒ずつ作る専用システム</strong>です。テンプレートにお店を合わせる必要はありません。</p>
+
+  <div class="pain-box">
+    <h2>こんなお困りごと、ありませんか？</h2>
+    <ul class="pain-list">
+      <li>ピークタイムに予約電話が鳴って、調理・接客の手が止まる</li>
+      <li>手書き台帳で、ダブルブッキングや記入漏れが起きたことがある</li>
+      <li>大手グルメサイトの送客手数料・掲載料が重い</li>
+      <li>大手の予約ツールでは、痒いところに手が届かない</li>
+    </ul>
+  </div>
+
+  <div class="arrow-divider">▼</div>
+
+  <div class="gain-box">
+    <h2><span class="ts">TableStack</span>を入れると、こう変わります</h2>
+    <ul class="gain-list">
+      <li><strong>予約はお客様がスマホから24時間自分で入れる</strong>——電話対応が減ります</li>
+      <li><strong>新しい予約はお店のLINEに自動で届く</strong>——スマホを見るだけ</li>
+      <li><strong>重複や営業時間外の予約は、システムが自動でブロック</strong></li>
+      <li><strong>送客手数料ゼロ。月額固定</strong>だから、予約が増えても費用は同じ</li>
+    </ul>
+  </div>
+
+  <div class="ai-strip">
+    <span class="ai-icon">🤖</span>
+    <div>
+      <h3>オプション「AIスタッフ」<span class="ai-price">＋¥2,000/月（税抜）</span></h3>
+      <p>「田中さん 明日19時 4名」と話しかけるだけで予約登録。変更・キャンセルもチャットで完結。実行前に必ず店主の確認が入るので、AIが勝手に予約を触ることはありません。</p>
+    </div>
+  </div>
+
+  <div class="proof-strip">
+    <span class="dot"></span>
+    <span><strong>福岡県内の飲食店で本番稼働中。</strong>現場の声から生まれたシステムです。</span>
+    <span class="page-hint">裏面につづく →</span>
+  </div>
+</div>
+
+<!-- ============ 裏面 ============ -->
+<div class="page page-back">
+  <div class="topbar">
+    <img src="logo-dark.png" alt="PumpStack Lab.">
+    <span class="by">TableStack（テーブルスタック）by PumpStack Lab.</span>
+  </div>
+
+  <span class="sec-label">できること</span>
+  <div class="feature-grid">
+    <div class="feature-cell"><div class="f-icon">📅</div><h3>Web予約フォーム</h3><p>テンプレートではなく、席・時間・独自ルールまで店専用に作り込み。</p></div>
+    <div class="feature-cell"><div class="f-icon">💬</div><h3>LINE自動通知</h3><p>新しい予約・キャンセルをお店のLINEにその場でお知らせ。</p></div>
+    <div class="feature-cell"><div class="f-icon">🪑</div><h3>人数に応じた自動席確保</h3><p>人数に合わせて席を自動で押さえます。</p></div>
+    <div class="feature-cell"><div class="f-icon">🔁</div><h3>変更・キャンセル対応</h3><p>席移動・時間変更もOK。重複・営業時間外は自動チェック。</p></div>
+    <div class="feature-cell"><div class="f-icon">👥</div><h3>顧客リスト</h3><p>リピーターのお客様がひと目でわかります。</p></div>
+    <div class="feature-cell"><div class="f-icon">🗓</div><h3>カレンダー・貸切設定</h3><p>月間カレンダー・貸切・イベント日の設定に対応。</p></div>
+  </div>
+
+  <span class="sec-label">料金</span>
+  <div class="price-box">
+    <div class="price-main">初期費用 <span class="num">¥30,000</span>＋月額 <span class="num">¥6,000</span>〜 <span class="tax">（税抜）</span></div>
+    <div class="price-tags">
+      <span class="price-tag">送客手数料なし</span>
+      <span class="price-tag">相談・見積もり無料</span>
+      <span class="price-tag" style="border-color:var(--violet);color:var(--violet);">AIスタッフ ＋¥2,000/月</span>
+    </div>
+  </div>
+
+  <span class="sec-label">PSLが選ばれる理由</span>
+  <div class="why2">
+    <div class="why2-cell">
+      <h3><span class="num">01</span>担当者は、開発者本人です</h3>
+      <p>営業・サポート・開発が分かれていません。ご相談は作った本人にそのまま届くので、話が早く、対応が正確です。</p>
+    </div>
+    <div class="why2-cell">
+      <h3><span class="num">02</span>店にシステムを合わせます</h3>
+      <p>テンプレートに店を合わせるのではなく、店に合わせて作る一点もの。設定はすべてPSLが行い、ヒアリングから最短3日で導入。</p>
+    </div>
+  </div>
+
+  <span class="sec-label">よくある質問</span>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">料金はいくらですか？</div>
+      <div class="faq-a">TableStackは初期¥30,000＋月額¥6,000〜、AIスタッフはオプション＋¥2,000/月（いずれも税抜）。その他のツールはヒアリング後に無料でお見積りします。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">契約の縛りや、しつこい営業はありませんか？</div>
+      <div class="faq-a">ありません。最低契約期間なし。「話を聞くだけ」も歓迎です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">機械が苦手でも大丈夫？</div>
+      <div class="faq-a">設定はすべてPSLが行います。導入後もLINEでいつでもサポートします。</div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="cta-text">
+      <h2>まずは<span class="line-word">LINE</span>で無料相談</h2>
+      <p>「うちの店でもできる？」だけでも大丈夫です。強引な営業は一切しません。<br>メール：<span class="mail">pumpstack.lab.2026@gmail.com</span></p>
+    </div>
+    <div class="qr-wrap">
+      <img src="line-qr.svg" alt="LINE友だち追加QRコード">
+      <span>LINE友だち追加</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

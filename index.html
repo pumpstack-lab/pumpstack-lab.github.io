@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PumpStack Lab.｜業務の困りごとを、テクノロジーで解決する</title>
-  <meta name="description" content="飲食店・サロン・中小企業の業務改善をAI活用でスピード対応。予約システム・業務ツール・HP制作。稼働実績多数。">
+  <meta name="description" content="飲食店・サロン・中小企業の業務改善をAI活用でスピード対応。予約システム「TableStack」・業務ツール・HP制作。飲食・福祉・消防など複数業種でツールが稼働中。">
   <meta name="google" content="notranslate">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,7 +126,7 @@
     .hero h1 .accent { color: #60a5fa; }
     .hero-sub {
       font-size: clamp(15px, 2vw, 18px);
-      color: #64748b; line-height: 1.9;
+      color: #94a3b8; line-height: 1.9;
       margin-bottom: 48px; max-width: 480px; margin-left: auto; margin-right: auto;
       opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s forwards;
     }
@@ -165,14 +165,15 @@
     .hero-stat:last-child { border-right: none; }
     .hero-stat-num {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      white-space: nowrap;
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
       font-weight: 800; color: white; display: block;
       letter-spacing: -0.03em; line-height: 1;
       margin-bottom: 6px;
     }
-    .hero-stat-label { font-size: 11px; color: #475569; line-height: 1.4; }
+    .hero-stat-label { font-size: 11px; color: #94a3b8; line-height: 1.4; }
     .hero-note {
-      color: #334155; font-size: 12px;
+      color: #94a3b8; font-size: 12px;
       opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.65s forwards;
     }
 
@@ -211,6 +212,7 @@
       border-bottom: 1px solid #e2e8f0;
     }
     .industry-icon { font-size: 16px; }
+    .industry-lead { font-size: 13px; color: var(--gray); margin: 12px 0 16px; }
 
     /* カードグリッド — 大+小混在 */
     .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
@@ -257,7 +259,7 @@
     }
     .card-link:hover { gap: 8px; }
     .card-link-featured { color: #93c5fd; }
-    .card-link-muted { font-size: 12px; color: #94a3b8; font-style: italic; }
+    .card-link-muted { font-size: 12px; color: #64748b; font-style: italic; }
 
     /* ===== FOOD FOCUS ===== */
     .food-focus { background: var(--dark); color: white; }
@@ -283,7 +285,7 @@
       font-size: 22px; margin: 0 auto 14px; position: relative; z-index: 1;
     }
     .flow-node h4 { font-size: 13px; font-weight: 700; color: white; margin-bottom: 4px; }
-    .flow-node p { font-size: 11px; color: #475569; line-height: 1.5; }
+    .flow-node p { font-size: 11px; color: #94a3b8; line-height: 1.5; }
 
     /* ロードマップ */
     .roadmap-title {
@@ -301,7 +303,7 @@
     .roadmap-icon { font-size: 18px; width: 28px; text-align: center; flex-shrink: 0; }
     .roadmap-text { flex: 1; }
     .roadmap-text strong { font-size: 13px; font-weight: 700; color: white; display: block; }
-    .roadmap-text span { font-size: 11px; color: #475569; }
+    .roadmap-text span { font-size: 11px; color: #94a3b8; }
     .rm-status { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; white-space: nowrap; }
     .rs-done { background: rgba(22,163,74,0.15); color: #4ade80; }
     .rs-wip { background: rgba(217,119,6,0.15); color: #fbbf24; }
@@ -322,11 +324,11 @@
     /* ===== WHY ===== */
     .why { background: var(--dark); color: white; }
     .why .section-title { color: white; }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; margin-top: 56px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); overflow: hidden; }
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 56px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); overflow: hidden; }
     .why-card { padding: 36px 32px; background: var(--dark); }
     .why-num { font-family: var(--font-display); font-size: 48px; font-weight: 800; color: rgba(99,102,241,0.25); line-height: 1; margin-bottom: 20px; letter-spacing: -0.04em; }
     .why-card h3 { font-size: 17px; font-weight: 700; color: white; margin-bottom: 10px; }
-    .why-card p { font-size: 13px; color: #64748b; line-height: 1.85; }
+    .why-card p { font-size: 13px; color: #94a3b8; line-height: 1.85; }
 
     /* ===== FLOW ===== */
     .flow-section { background: var(--light); }
@@ -336,6 +338,19 @@
     .step-num { width: 48px; height: 48px; background: var(--dark-2); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; font-weight: 800; margin: 0 auto 16px; }
     .flow-step h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
     .flow-step p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+
+    /* ===== FAQ ===== */
+    .faq-section { background: white; }
+    .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+    .faq-item { border: 1px solid #e2e8f0; border-radius: var(--radius); padding: 20px 24px; }
+    .faq-item summary { font-size: 15px; font-weight: 700; cursor: pointer; list-style: none; display: flex; gap: 10px; align-items: baseline; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::before { content: 'Q.'; color: var(--blue); font-weight: 800; flex-shrink: 0; }
+    .faq-item summary::after { content: '＋'; margin-left: auto; color: var(--gray); font-weight: 700; flex-shrink: 0; }
+    .faq-item[open] summary::after { content: '−'; }
+    section { scroll-margin-top: 64px; }
+    .faq-item[open] summary { margin-bottom: 10px; }
+    .faq-item p { font-size: 14px; color: var(--gray); line-height: 1.85; padding-left: 26px; }
 
     /* ===== CTA ===== */
     .cta-section {
@@ -359,7 +374,7 @@
       font-weight: 800; letter-spacing: -0.03em;
       margin-bottom: 18px; text-wrap: balance;
     }
-    .cta-section p { color: #64748b; font-size: 15px; margin-bottom: 44px; line-height: 1.85; }
+    .cta-section p { color: #94a3b8; font-size: 15px; margin-bottom: 44px; line-height: 1.85; }
     .cta-line-btn {
       display: inline-flex; align-items: center; gap: 10px;
       background: #06c755; color: white; padding: 20px 44px; border-radius: 100px;
@@ -368,7 +383,7 @@
       transition: transform 0.18s cubic-bezier(0.16,1,0.3,1);
     }
     .cta-line-btn:hover { transform: translateY(-3px); }
-    .cta-sub { margin-top: 20px; font-size: 12px; color: #334155; }
+    .cta-sub { margin-top: 20px; font-size: 12px; color: #94a3b8; }
 
     /* ===== FOOTER ===== */
     footer { background: #06090f; color: #334155; text-align: center; padding: 48px 24px 32px; font-size: 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
@@ -423,9 +438,9 @@
 <!-- HEADER -->
 <header>
   <a href="#">
-    <img src="logo.png" alt="PumpStack Lab." class="logo-img">
+    <img src="assets/logo-dark.png" alt="PumpStack Lab." class="logo-img">
   </a>
-  <a href="https://line.me/R/ti/p/@425ukgwa" class="header-cta" target="_blank">
+  <a href="https://line.me/R/ti/p/@425ukgwa" class="header-cta" target="_blank" rel="noopener noreferrer">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
     無料相談
   </a>
@@ -447,14 +462,14 @@
       <span class="accent">作ります。</span>
     </h1>
     <p class="hero-sub">
-      予約管理・業務効率化——<br>現場の声をそのままツールにしてきました。
+      予約の電話を減らす。紙の記録をなくす。<br>現場の声を、そのままツールにしてきました。
     </p>
     <div class="hero-btns">
-      <a href="https://line.me/R/ti/p/@425ukgwa" class="btn-line" target="_blank">
+      <a href="https://line.me/R/ti/p/@425ukgwa" class="btn-line" target="_blank" rel="noopener noreferrer">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         LINEで無料相談する
       </a>
-      <a href="#gallery" class="btn-outline" style="font-size:14px;padding:14px 28px;opacity:0.7;">稼働実績を見る ↓</a>
+      <a href="assets/tablestack-onepager.pdf" class="btn-outline" target="_blank" rel="noopener noreferrer">TableStack資料を見る（PDF）</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
@@ -474,7 +489,7 @@
         <div class="hero-stat-label">相談・<br>見積もり</div>
       </div>
     </div>
-    <p class="hero-note">強引な営業は一切しません</p>
+    <p class="hero-note">強引な営業は一切しません&nbsp;／&nbsp;<a href="#gallery" style="color:#cbd5e1;text-decoration:underline;">稼働実績を見る ↓</a></p>
   </div>
 </section>
 
@@ -490,12 +505,13 @@
     <!-- 飲食 -->
     <div class="industry-block">
       <div class="industry-label"><span class="industry-icon">🍜</span>飲食店</div>
+      <p class="industry-lead">予約の電話とダブルブッキングを、システムが肩代わりします。</p>
       <div class="cards-grid has-featured">
         <div class="product-card featured">
           <div class="card-body">
             <div style="margin-bottom:14px;"><span class="badge badge-live">稼働中</span></div>
-            <h3>飲食店予約システム</h3>
-            <p style="margin-top:8px;">席数・営業時間・定休日をフルカスタム。ゲスト予約フォームと管理画面をセットで提供。月間カレンダー・貸切・イベント設定まで対応済み。<br><strong style="color:#4ade80;">実店舗テスト稼働中。</strong></p>
+            <h3>TableStack<span style="font-size:13px;font-weight:500;color:#94a3b8;">（テーブルスタック）</span>｜飲食店予約システム</h3>
+            <p style="margin-top:8px;">テンプレートにお店を合わせるのではなく、席数・営業時間・独自ルールまで御社専用に作り込むオーダーメイド型。ゲスト予約フォームと管理画面をセットで提供し、月間カレンダー・貸切・イベント設定まで対応済み。オプションの<strong style="color:#a5b4fc;">AIスタッフ</strong>なら、チャットに話しかけるだけで予約の登録・変更・キャンセルまで完結（＋¥2,000/月・税抜）。<br><strong style="color:#4ade80;">福岡県内の飲食店で本番稼働中。</strong></p>
             <a href="products/restaurant-reservation.html" class="card-link card-link-featured" style="margin-top:16px;display:inline-flex;">
               詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
@@ -526,6 +542,7 @@
     <!-- サロン・消防・福祉 -->
     <div class="industry-block">
       <div class="industry-label"><span class="industry-icon">✂️</span>サロン・美容室 &nbsp;／&nbsp; <span class="industry-icon">🔥</span>消防設備 &nbsp;／&nbsp; <span class="industry-icon">🏠</span>障害福祉</div>
+      <p class="industry-lead">点検票・日報・在庫管理——紙とExcelの手間を、現場から減らします。</p>
       <div class="cards-grid">
         <div class="product-card">
           <div class="card-header"><div class="card-icon">✂️</div><span class="badge badge-done">開発済み</span></div>
@@ -573,7 +590,7 @@
 
     <p class="roadmap-title">開発ロードマップ</p>
     <div class="roadmap">
-      <div class="roadmap-item done"><div class="roadmap-icon">✅</div><div class="roadmap-text"><strong>飲食店予約システム</strong><span>席数・定休日・イベント・貸切対応。本番稼働中。</span></div><span class="rm-status rs-done">稼働中</span></div>
+      <div class="roadmap-item done"><div class="roadmap-icon">✅</div><div class="roadmap-text"><strong>TableStack（飲食店予約システム）</strong><span>席数・定休日・イベント・貸切対応。本番稼働中。</span></div><span class="rm-status rs-done">稼働中</span></div>
       <div class="roadmap-item wip"><div class="roadmap-icon">🔄</div><div class="roadmap-text"><strong>売上集計ツール</strong><span>消費税自動仕分け・CSV出力。開発中。</span></div><span class="rm-status rs-wip">開発中</span></div>
       <div class="roadmap-item wip"><div class="roadmap-icon">🔄</div><div class="roadmap-text"><strong>テイクアウト受付システム</strong><span>電話受付をWeb化。厨房通知機能を含めて開発中。</span></div><span class="rm-status rs-wip">開発中</span></div>
       <div class="roadmap-item wip"><div class="roadmap-icon">🔄</div><div class="roadmap-text"><strong>セルフオーダー受注システム</strong><span>既存端末で導入できる低コスト型。</span></div><span class="rm-status rs-wip">開発中</span></div>
@@ -619,6 +636,11 @@
         <h3>何でも相談できるパートナー</h3>
         <p>「こんなことできる？」という相談から始めてください。業種や内容を問わず、業務改善のご相談に乗ります。</p>
       </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h3>担当者は、開発者本人です</h3>
+        <p>営業・サポート・開発が分かれていません。ご相談は作った本人にそのまま届くので、話が早く、対応が正確です。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -636,12 +658,34 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="gallery-kicker">よくある質問</div>
+    <h2 class="section-title">気になることに、先にお答えします。</h2>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>料金はいくらですか？</summary>
+        <p>予約受付システム「TableStack」は初期費用¥30,000＋月額¥6,000〜、チャットで予約の登録・変更・キャンセルまでできる「AIスタッフ」はオプション＋¥2,000/月（いずれも税抜）・送客手数料なしです。その他のツールは、ヒアリング後に無料でお見積りします。相談・見積もりだけでも無料です。</p>
+      </details>
+      <details class="faq-item">
+        <summary>契約の縛りや、しつこい営業はありませんか？</summary>
+        <p>ありません。最低契約期間はなく、「話を聞くだけ」も歓迎です。合わないと感じたら、そのまま断っていただいて大丈夫です。</p>
+      </details>
+      <details class="faq-item">
+        <summary>導入後はどこまで対応してもらえますか？</summary>
+        <p>席数・営業時間・メニューなどの初期設定はすべてPSLが行います。納品後の使い方相談・修正のご希望も、LINEでそのままサポートします。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
     <h2>まず話だけ聞いてみてください。</h2>
     <p>費用・納期・できること、全部無料でお伝えします。<br>強引な営業は一切しません。</p>
-    <a href="https://line.me/R/ti/p/@425ukgwa" class="cta-line-btn" target="_blank">
+    <a href="https://line.me/R/ti/p/@425ukgwa" class="cta-line-btn" target="_blank" rel="noopener noreferrer">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       LINEで無料相談する
     </a>
@@ -656,7 +700,7 @@
 </footer>
 
 <!-- FLOAT CTA -->
-<a href="https://line.me/R/ti/p/@425ukgwa" class="float-cta" target="_blank">
+<a href="https://line.me/R/ti/p/@425ukgwa" class="float-cta" target="_blank" rel="noopener noreferrer">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
   無料相談
 </a>
